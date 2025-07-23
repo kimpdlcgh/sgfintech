@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { PhoneCall, Building2, BarChart3, Shield } from "lucide-react";
 
 const pillars = [
@@ -35,51 +36,63 @@ const pillars = [
 
 export const Pillars = () => {
   return (
-    <section id="pillars" className="py-24 bg-gradient-to-b from-background to-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+    <section id="pillars" className="section-padding bg-gradient-to-b from-background via-secondary/20 to-background relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container-custom relative z-10">
+        <div className="text-center mb-20">
+          <Badge variant="outline" className="mb-6 glass-effect">
+            💼 Our Solutions
+          </Badge>
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 gradient-text">
             Four Pillars of Innovation
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Our comprehensive platform delivers enterprise-grade solutions across 
             four critical business domains, powered by cutting-edge technology.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {pillars.map((pillar, index) => (
-            <Card key={index} className="group bg-gradient-card border-primary/10 hover:shadow-elegant transition-smooth hover:scale-[1.02]">
-              <CardContent className="p-8">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:shadow-glow transition-smooth">
-                    <pillar.icon className="w-6 h-6 text-primary-foreground" />
+            <Card key={index} className="group bg-gradient-card border-primary/10 hover:shadow-float transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+              
+              <CardContent className="p-8 lg:p-10 relative z-10">
+                <div className="flex items-start space-x-6 mb-8">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center group-hover:shadow-glow group-hover:scale-110 transition-all duration-300">
+                    <pillar.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:gradient-text transition-all duration-300">
                       {pillar.title}
                     </h3>
-                    <p className="text-primary font-medium mb-3">
+                    <p className="text-primary font-semibold text-lg mb-4">
                       {pillar.subtitle}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
                   {pillar.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {pillar.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-accent rounded-full"></div>
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                    <div key={featureIndex} className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-stats hover:bg-primary/5 transition-colors">
+                      <div className="w-3 h-3 bg-gradient-primary rounded-full flex-shrink-0"></div>
+                      <span className="text-foreground font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <Button variant="enterprise" className="w-full">
-                  Learn More
+                <Button variant="enterprise" className="w-full h-12 text-lg font-semibold hover:shadow-card transition-all duration-300">
+                  Learn More →
                 </Button>
               </CardContent>
             </Card>
