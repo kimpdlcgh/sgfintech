@@ -21,7 +21,7 @@ export const Footer = () => {
               solutions for the modern enterprise.
             </p>
             <div className="text-primary-foreground/70 font-medium">
-              © 2024 SG Fintech, LLC. All rights reserved.
+              © 2022 SG Fintech, LLC. All rights reserved.
             </div>
           </div>
 
